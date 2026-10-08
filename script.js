@@ -383,6 +383,30 @@ data.tautan.forEach((t) =>
   $("contactLinks").append(el("li", {}, el("a", { href: t.url, target: "_blank", rel: "noopener", textContent: t.label })))
 );
 $("footer").textContent = `© ${new Date().getFullYear()} ${data.namaLengkap}. Dibuat dengan HTML, CSS, JavaScript, dan Three.js.`;
+data.tautan.forEach((t) =>
+  $("footerLinks").append(el("li", {}, el("a", { href: t.url, target: "_blank", rel: "noopener", textContent: t.label })))
+);
+
+// Keyboard 3D: Three.js (~600 KB) baru diunduh saat area keyboard mendekati layar, jadi tidak
+// memperlambat tampilnya halaman. Dilewati jika pengguna mengaktifkan mode hemat data.
+const muatScript = (src) =>
+  new Promise((ok, gagal) => document.head.append(Object.assign(document.createElement("script"), { src, onload: ok, onerror: gagal })));
+const panggung = $("heroStage");
+if (navigator.connection && navigator.connection.saveData) {
+  panggung.classList.add("no-3d");
+} else {
+  const tunggu3d = new IntersectionObserver(
+    ([en]) => {
+      if (!en.isIntersecting) return;
+      tunggu3d.disconnect();
+      muatScript("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js")
+        .then(() => muatScript("hero3d.js"))
+        .catch(() => panggung.classList.add("no-3d"));
+    },
+    { rootMargin: "300px" }
+  );
+  tunggu3d.observe(panggung);
+}
 
 // Tandai menu sesuai bagian yang sedang dibaca
 const navLinks = [...document.querySelectorAll(".site-header nav a")];

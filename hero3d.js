@@ -175,9 +175,9 @@
   let accentInk = "#ffffff";
 
   function drawLegend(t) {
-    const c = t.canvas, g = c.getContext("2d"), pad = c.height * 0.2;
-    const font = (px) => `600 ${px}px "Instrument Sans", system-ui, sans-serif`;
-    let size = 38;
+    const c = t.canvas, g = c.getContext("2d"), pad = c.height * 0.16;
+    const font = (px) => `700 ${px}px "Instrument Sans", system-ui, sans-serif`;
+    let size = 52;
     g.clearRect(0, 0, c.width, c.height);
     g.font = font(size);
     const fit = (c.width - pad * 2) / g.measureText(t.nama).width;
@@ -201,7 +201,7 @@
     });
   }
   readTokens();
-  if (document.fonts) document.fonts.load('600 38px "Instrument Sans"').then(() => techs.forEach(drawLegend));
+  if (document.fonts) document.fonts.load('700 52px "Instrument Sans"').then(() => techs.forEach(drawLegend));
   new MutationObserver(readTokens).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", readTokens);
 

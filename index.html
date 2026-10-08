@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portofolio Zidan</title>
   <meta name="description" content="Portofolio mahasiswa Informatika: proyek, keahlian, dan pengalaman.">
+  <link rel="canonical" href="https://zidanman01.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#f3f5fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0f1f" media="(prefers-color-scheme: dark)">
+
+  <!-- Pratinjau saat link dibagikan (LinkedIn, WhatsApp, X, dll.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="Portofolio Zidan">
+  <meta property="og:title" content="Portofolio Zidan">
+  <meta property="og:description" content="Portofolio mahasiswa Informatika: proyek, keahlian, dan pengalaman.">
+  <meta property="og:url" content="https://zidanman01.github.io/">
+  <meta property="og:image" content="https://zidanman01.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Muhammad Zidan, Mahasiswa Informatika di Universitas Negeri Jakarta">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,7 +43,9 @@
     </nav>
     <span class="scroll-progress" id="scrollProgress" aria-hidden="true"></span>
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ganti tema terang/gelap">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      <!-- Bulan tampil di tema terang, matahari di tema gelap (diatur di CSS) -->
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
   </header>
 
@@ -87,12 +109,13 @@
 
   <footer class="site-footer">
     <p id="footer"></p>
+    <ul class="footer-links" id="footerLinks"></ul>
+    <a class="to-top" href="#top">Kembali ke atas</a>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="reactbits.js"></script>
+  <!-- Three.js dan hero3d.js dimuat belakangan oleh script.js -->
   <script src="script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="hero3d.js"></script>
 </body>
 </html>
